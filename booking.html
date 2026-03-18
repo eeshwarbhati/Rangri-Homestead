@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RANGRI HOMESTAY | Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="booking">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="subhero">
+      <nav class="navbar container">
+        <a class="brand" href="index.html">
+          <span class="brand-dot">RH</span>
+          <span>RANGRI HOMESTAY</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html" data-nav="home">Home</a>
+          <a href="about.html" data-nav="about">About</a>
+          <a href="gallery.html" data-nav="gallery">Gallery</a>
+          <a href="rooms.html" data-nav="rooms">Rooms</a>
+          <a href="booking.html" class="nav-book" data-nav="booking">Book Stay</a>
+        </div>
+      </nav>
+      <div class="container subhero-content reveal">
+        <p class="eyebrow">Booking</p>
+        <h1>Check availability and estimate your total stay cost.</h1>
+      </div>
+    </header>
+    <main>
+      <section class="section container reveal">
+        <div class="booking-wrap single">
+          <form class="booking-form" id="bookingForm">
+            <label>
+              Full Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Phone
+              <input type="tel" name="phone" required />
+            </label>
+            <div class="two-col">
+              <label>
+                Check-in
+                <input type="date" name="checkin" required />
+              </label>
+              <label>
+                Check-out
+                <input type="date" name="checkout" required />
+              </label>
+            </div>
+            <div class="two-col">
+              <label>
+                Guests
+                <select name="guests" required>
+                  <option value="">Select</option>
+                  <option value="2">Up to 2 Guests</option>
+                  <option value="4">Up to 4 Guests</option>
+                  <option value="6">Up to 6 Guests</option>
+                </select>
+              </label>
+              <label>
+                Room Category
+                <select name="roomType" required>
+                  <option value="">Select</option>
+                  <option value="3200">Mountain Deluxe</option>
+                  <option value="4600">Family Suite</option>
+                  <option value="2800">Cozy Standard</option>
+                </select>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-solid full">Check Availability</button>
+            <p class="form-note" id="formMessage" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer container">
+      <p>RANGRI HOMESTAY | Manali, Himachal Pradesh</p>
+      <p>Booking team contact will follow your inquiry</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
