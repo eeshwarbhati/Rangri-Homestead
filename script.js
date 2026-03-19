@@ -1,22 +1,19 @@
 const propertyPhotos = [
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/3fce4f7f-a2a5-426f-a571-8e420f1f4a1f.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/6b53917d-fdb4-48f7-bde6-c4db40f4adf4.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/4d06195a-a2ee-48de-a604-c6a0cb6c060f.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/f9e8bb97-83ae-4bcc-adf0-1e53f8fc95f5.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/b4f73db5-18fe-49be-80f4-4f0c844f8b58.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/2a3002f1-f7a2-4d9c-99b0-dccffb6fca37.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/1427628f-c8d4-49d2-ba70-e273fbbf3694.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/050a4ecb-57b8-43fd-8cd2-bde2ab7f3832.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/f86ce899-c99f-4c1e-b173-7f4db40aca9f.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/ace3d83f-fb6c-4b4f-952e-fdef78f39e8d.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/47be9ead-cfbf-48a8-b537-5e67848f1238.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/bb8bbe3a-b9e8-4694-a2f8-90e75f66110c.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/b246f8a7-5612-40f0-b3ca-c55f32d53ffa.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/0b2c3b98-f8a9-43ca-b725-66cf09ee5681.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/2d63f31d-f8dc-4b9f-85ca-15c82e1b8757.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/9adee4ec-8f5c-4379-9eec-2f8ea88d5906.jpg",
-  "https://thehomestay.co.in/wp-content/uploads/2024/07/52c82e89-c53d-49ea-9f95-f001145213dc.jpg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.15-AM-1.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.17-AM-1.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.18-AM-2.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.19-AM-1.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.19-AM.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.20-AM-1.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.21-AM-2.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.22-AM-1.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.25-AM-1.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.26-AM-2.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.30-AM-1.jpeg",
+  "assets/images/WhatsApp-Image-2024-10-09-at-9.08.32-AM-2.jpeg",
 ];
+
+const fallbackPhoto = "assets/images/WhatsApp-Image-2024-10-09-at-9.08.15-AM-1.jpeg";
 
 const roomTypes = [
   {
@@ -77,6 +74,17 @@ const openLightbox = (src) => {
   lightboxImage.src = src;
   lightbox.classList.add("open");
   lightbox.setAttribute("aria-hidden", "false");
+};
+
+const setImageFallbacks = () => {
+  const images = document.querySelectorAll("img");
+  images.forEach((img) => {
+    img.addEventListener("error", () => {
+      if (img.src !== fallbackPhoto) {
+        img.src = fallbackPhoto;
+      }
+    });
+  });
 };
 
 const closeLightboxDialog = () => {
@@ -212,6 +220,7 @@ rotateHero();
 buildGallery();
 buildRooms();
 setupLightbox();
+setImageFallbacks();
 animateCounters();
 revealOnScroll();
 setupBookingForm();
